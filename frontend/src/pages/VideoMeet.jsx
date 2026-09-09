@@ -401,6 +401,10 @@ export default function VideoMeetComponent() {
         }
     }, [screen])
     let handleScreen = () => {
+        if (!screenAvailable) {
+            window.alert("Screen sharing is not supported by this mobile browser. Please use Chrome on a computer.");
+            return;
+        }
         setScreen(!screen);
     }
 
@@ -531,10 +535,13 @@ export default function VideoMeetComponent() {
                             {audio === true ? <MicIcon /> : <MicOffIcon />}
                         </IconButton>
 
-                        {screenAvailable === true ?
-                            <IconButton onClick={handleScreen} style={{ color: "white" }}>
-                                {screen === true ? <ScreenShareIcon /> : <StopScreenShareIcon />}
-                            </IconButton> : <></>}
+                        <IconButton
+                            onClick={handleScreen}
+                            style={{ color: screenAvailable ? "white" : "#777" }}
+                            aria-label={screenAvailable ? "Share screen" : "Screen sharing is not supported"}
+                        >
+                            {screen === true ? <ScreenShareIcon /> : <StopScreenShareIcon />}
+                        </IconButton>
 
                         <Badge badgeContent={newMessages} max={999} color='orange'>
                             <IconButton onClick={() => setModal(!showModal)} style={{ color: "white" }}>
@@ -555,9 +562,11 @@ export default function VideoMeetComponent() {
                                     ref={ref => {
                                         if (ref && video.stream) {
                                             ref.srcObject = video.stream;
+                                            ref.onloadedmetadata = () => ref.play().catch(() => {});
                                         }
                                     }}
                                     autoPlay
+                                    playsInline
                                 >
                                 </video>
                             </div>
