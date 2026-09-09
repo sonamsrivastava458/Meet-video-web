@@ -1,0 +1,27 @@
+.authPage { min-height: 100vh; background: #f7f9fc; }
+.brandPanel { min-height: 100vh; background: linear-gradient(145deg, rgba(12, 22, 63, .8), rgba(51, 78, 173, .72)), url('/background.png') center / cover; }
+.formPanel { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #fff; }
+.formBox { width: min(100% - 48px, 440px); padding: 48px 0; }
+.mobileBrand { display: none; color: #263c9c; font-size: 1.05rem; font-weight: 900; letter-spacing: .12em; }
+.mobileBrand span { color: #f17b52; }
+.lockAvatar { width: 48px !important; height: 48px !important; margin: 0 0 24px !important; color: #fff !important; background: #435ed5 !important; box-shadow: 0 8px 20px rgba(67, 94, 213, .25); }
+.formIntro { margin-bottom: 24px; }
+.kicker { color: #526be8; font-size: .7rem; font-weight: 800; letter-spacing: .16em; }
+.formIntro h1 { margin: 8px 0 8px; color: #18213a; font-size: clamp(1.8rem, 4vw, 2.35rem); letter-spacing: -.045em; line-height: 1.1; }
+.formIntro p { margin: 0; color: #78839b; font-size: .95rem; }
+.authSwitch { display: flex; width: 100%; margin-bottom: 18px; padding: 4px; border-radius: 12px; background: #f0f3f9; }
+.authSwitch button { flex: 1; padding: 11px; border: 0; border-radius: 9px; color: #7b8498; background: transparent; cursor: pointer; font: inherit; font-size: .88rem; font-weight: 700; }
+.authSwitch .activeSwitch { color: #fff; background: #435ed5; box-shadow: 0 5px 12px rgba(67, 94, 213, .22); }
+.authForm { display: flex; flex-direction: column; gap: 4px; }
+.authForm :global(.MuiOutlinedInput-root) { border-radius: 11px; background: #fbfcff; }
+.authForm :global(.MuiButton-root) { min-height: 48px; border-radius: 11px; text-transform: none; font-size: .95rem; font-weight: 800; }
+.submitButton { margin-top: 16px !important; background: #435ed5 !important; box-shadow: 0 10px 20px rgba(67, 94, 213, .22) !important; }
+.errorMessage { margin: 4px 0 0; color: #d14343; font-size: .8rem; }
+
+@media (max-width: 600px) {
+    .brandPanel { display: none; }
+    .formPanel { min-height: 100vh; }
+    .formBox { width: min(100% - 36px, 440px); padding: 28px 0; }
+    .mobileBrand { display: block; margin-bottom: 34px; }
+    .lockAvatar { margin-bottom: 18px !important; }
+}

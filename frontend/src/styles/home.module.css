@@ -1,0 +1,49 @@
+.homePage { min-height: 100vh; overflow: hidden; color: #17213b; background: radial-gradient(circle at 80% 25%, #e9edff 0, transparent 30%), #f8f9fc; }
+.navBar { display: flex; align-items: center; justify-content: space-between; max-width: 1240px; margin: 0 auto; padding: 24px clamp(20px, 5vw, 64px); }
+.brand { display: flex; align-items: center; gap: 11px; }
+.brandMark { display: grid; place-items: center; width: 38px; height: 38px; color: white; border-radius: 11px; background: #435ed5; }
+.brandMark svg { font-size: 21px; }
+.brandName { display: block; color: #293b9c; font-size: 1rem; font-weight: 900; letter-spacing: .11em; }
+.brandName span { color: #ef7957; }
+.brand small { display: block; margin-top: 2px; color: #929bb0; font-size: .65rem; }
+.navActions { display: flex; align-items: center; gap: 8px; }
+.navActions button { text-transform: none; }
+.navActions :global(.MuiIconButton-root) { gap: 5px; padding: 9px 12px; color: #65718a; border-radius: 10px; font-size: .82rem; }
+.logoutButton { color: #52617f !important; border-radius: 10px !important; }
+.meetContainer { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, .85fr); align-items: center; gap: 5vw; max-width: 1240px; min-height: calc(100vh - 90px); margin: 0 auto; padding: 28px clamp(20px, 7vw, 90px) 90px; }
+.leftPanel { position: relative; z-index: 1; }
+.eyebrow { color: #526be8; font-size: .72rem; font-weight: 900; letter-spacing: .16em; }
+.leftPanel h1 { margin: 18px 0 16px; color: #18213a; font-size: clamp(2.6rem, 5.4vw, 5rem); letter-spacing: -.065em; line-height: .98; }
+.leftPanel h1 em { color: #526be8; font-style: normal; }
+.description { max-width: 420px; margin: 0 0 30px; color: #77829b; font-size: 1.05rem; line-height: 1.65; }
+.joinCard { width: min(100%, 560px); padding: 8px; border: 1px solid #e4e8f2; border-radius: 15px; background: rgba(255,255,255,.82); box-shadow: 0 18px 45px rgba(48, 64, 112, .1); }
+.inputRow { display: flex; gap: 8px; }
+.inputRow :global(.MuiOutlinedInput-root) { border-radius: 10px; background: white; }
+.inputRow button { min-width: 132px; border-radius: 10px; text-transform: none; font-weight: 800; background: #435ed5; }
+.error { margin: 7px 10px 3px; color: #c44a4a; font-size: .78rem; }
+.quickNote { margin-top: 18px; color: #8c96a9; font-size: .77rem; }
+.quickNote span { margin-right: 7px; color: #42ae80; }
+.rightPanel { position: relative; display: grid; place-items: center; min-height: 480px; }
+.rightPanel img { position: relative; z-index: 1; width: min(100%, 470px); filter: drop-shadow(0 25px 20px rgba(44, 56, 111, .12)); }
+.illustrationGlow { position: absolute; width: min(33vw, 410px); aspect-ratio: 1; border-radius: 50%; background: #e6eaff; }
+.statPill { position: absolute; z-index: 2; right: 0; bottom: 15%; display: flex; align-items: center; gap: 10px; padding: 12px 16px; border: 1px solid rgba(255,255,255,.8); border-radius: 13px; background: rgba(255,255,255,.86); box-shadow: 0 12px 28px rgba(48, 64, 112, .13); }
+.statPill strong { color: #526be8; font-size: 1.45rem; }
+.statPill span { color: #6b7690; font-size: .72rem; line-height: 1.3; }
+
+@media (max-width: 760px) {
+    .navBar { padding: 18px 20px; }
+    .brand small { display: none; }
+    .navActions :global(.MuiIconButton-root) { padding: 7px; }
+    .navActions :global(.MuiIconButton-root) span { display: none; }
+    .logoutButton { min-width: auto !important; padding: 7px !important; font-size: 0 !important; }
+    .logoutButton svg { margin: 0 !important; font-size: 20px; }
+    .meetContainer { display: flex; flex-direction: column; align-items: stretch; gap: 20px; min-height: auto; padding: 46px 20px 48px; }
+    .leftPanel h1 { font-size: clamp(2.45rem, 12vw, 4rem); }
+    .description { font-size: .95rem; }
+    .inputRow { flex-direction: column; }
+    .inputRow button { min-height: 48px; }
+    .rightPanel { min-height: 300px; }
+    .rightPanel img { width: min(86vw, 390px); }
+    .illustrationGlow { width: 70vw; }
+    .statPill { right: 4%; bottom: 3%; }
+}
