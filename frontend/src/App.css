@@ -1,6 +1,7 @@
 .landingPageContainer {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
   background: url("/public/background.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -93,4 +94,75 @@
   width: 30vw;
   height: auto;
   border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .landingPageContainer nav {
+    padding: 1.1rem 1rem;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .landingPageContainer nav h2 {
+    max-width: 5.5rem;
+    font-size: 1.25rem;
+    line-height: 1.15;
+  }
+
+  .landingPageContainer nav .navlist {
+    flex: 1;
+    justify-content: flex-end;
+    gap: .7rem;
+    font-size: .78rem;
+    text-align: center;
+  }
+
+  .landingMainContainer {
+    height: auto;
+    min-height: calc(100svh - 76px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2.25rem;
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .landingMainContainer > div:nth-child(1) {
+    font-size: 1rem;
+  }
+
+  .landingMainContainer > div:nth-child(1) h1 {
+    max-width: 14rem;
+    font-size: clamp(2.8rem, 14vw, 4.5rem);
+    line-height: .98;
+  }
+
+  .landingMainContainer > div:nth-child(1) p {
+    max-width: 17rem;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+
+  .landingMainContainer > div:nth-child(1) div[role='button'] {
+    margin-top: 1.5rem;
+    padding: .8rem 1rem;
+    border-radius: 14px;
+  }
+
+  .landingMainContainer > div:nth-child(1) div[role='button'] a {
+    font-size: 1.05rem;
+  }
+
+  .landingMainContainer > div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+  }
+
+  .landingMainContainer > div:nth-child(2) img {
+    width: min(100%, 22rem);
+    height: auto;
+    max-height: 48vh;
+    object-fit: contain;
+  }
 }

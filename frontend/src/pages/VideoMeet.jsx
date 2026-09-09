@@ -83,7 +83,16 @@ export default function VideoMeetComponent() {
     }
 
     const getPermissions = async () => {
+        const canShareScreen = typeof navigator.mediaDevices?.getDisplayMedia === "function";
+        setScreenAvailable(canShareScreen);
+
         try {
+            if (!navigator.mediaDevices?.getUserMedia) {
+                setVideoAvailable(false);
+                setAudioAvailable(false);
+                return;
+            }
+
             const videoPermission = await navigator.mediaDevices.getUserMedia({ video: true });
             if (videoPermission) {
                 setVideoAvailable(true);
@@ -100,12 +109,6 @@ export default function VideoMeetComponent() {
             } else {
                 setAudioAvailable(false);
                 console.log('Audio permission denied');
-            }
-
-            if (navigator.mediaDevices.getDisplayMedia) {
-                setScreenAvailable(true);
-            } else {
-                setScreenAvailable(false);
             }
 
             if (videoAvailable || audioAvailable) {
